@@ -1,4 +1,4 @@
-# colorchangeflutterapp
+# color change flutter app
 
 A simple flutter app, wich change screen colors by tap
 
