@@ -2,20 +2,22 @@ import 'package:flutter/material.dart';
 import 'game_page.dart';
 import 'color_generator.dart';
 
+// Page with color change.
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  MyHomePageState createState() => MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class MyHomePageState extends State<MyHomePage> {
   ColorItem bgColor = ColorGenerator.GenerateNewColor();
   int counter = 0;
 
-  void _setRandomColor() {
+  // Set random bgColor
+  void setRandomColor() {
     setState(() {
       bgColor = ColorGenerator.GenerateNewColor();
     });
@@ -28,11 +30,11 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: GestureDetector(
-        onTap: (){
+        onTap: () {
           setState(() {
-            _setRandomColor();
+            setRandomColor();
             counter++;
-            if(counter==3) {
+            if (counter == 3) {
               counter = 0;
               Navigator.pushAndRemoveUntil(
                 context,
@@ -43,10 +45,11 @@ class _MyHomePageState extends State<MyHomePage> {
           });
         },
         child: Container(
-          color: Color.fromARGB(bgColor.alpha, bgColor.red, bgColor.blue, bgColor.green),
+          color: Color.fromARGB(
+              bgColor.alpha, bgColor.red, bgColor.blue, bgColor.green),
           child: Center(
             child: Text(
-              'Hey there \nTap 3 times to play TickTackToe',
+              'Hey there \nTap 3 times to play TicTacToe',
             ),
           ),
         ),

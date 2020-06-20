@@ -7,6 +7,7 @@ class ColorItem {
   int blue;
 }
 
+// Generate random colors with different alpha
 class ColorGenerator {
   static final color_range = 256;
 
